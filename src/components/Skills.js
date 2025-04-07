@@ -1,37 +1,46 @@
-// src/components/Skills.js
-import { BadgeCheckIcon, ChipIcon } from "@heroicons/react/solid";
-import React from "react";
-import { skills } from "../data";  // Ensure correct path to 'data.js'
+import React from 'react';
+import { Container, Typography } from '@mui/material';
+import Header from '../components/header';
+import SkillSection from '../components/SkillSection';
 
+const skillsData = {
+  languages: [
+    "JavaScript (ES6+)",
+    "Python (Basics)",
+    "HTML5 & CSS3",
+    "SQL"
+  ],
+  frameworks: [
+    "React (Hooks, Router)",
+    "Node.js",
+    "Express.js",
+    "Bootstrap",
+    "Tailwind CSS"
+  ],
+  tools: [
+    "Git & GitHub",
+    "Docker",
+    "VS Code",
+    "MongoDB Compass",
+    "Postman",
+    "Figma (for basic UI design)"
+  ]
+};
 
-export default function Skills() {
+const Skills = () => {
   return (
-    <section id="skills">
-      <div className="container px-5 py-10 mx-auto">
-        <div className="text-center mb-20">
-          <ChipIcon className="w-10 inline-block mb-4" />
-          <h1 className="sm:text-4xl text-3xl font-medium title-font text-white mb-4">
-            Skills &amp; Technologies
-          </h1>
-          <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">
-            As a Full Stack Web Development student at RRC Polytech, I've gained hands-on experience
-            with front-end, back-end, and database technologies. Here's a list of tools and languages
-            I've used to build projects from scratch.
-          </p>
-        </div>
-        <div className="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
-          {skills.map((skill, index) => (
-            <div key={index} className="p-2 sm:w-1/2 w-full">
-              <div className="bg-gray-800 rounded flex p-4 h-full items-center">
-                <BadgeCheckIcon className="text-green-400 w-6 h-6 flex-shrink-0 mr-4" />
-                <span className="title-font font-medium text-white">
-                  {skill}
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+    <>
+      <Header />
+      <Container maxWidth="md">
+        <Typography variant="h3" component="h1" gutterBottom sx={{ mt: 4 }}>
+          My Skills
+        </Typography>
+        <SkillSection title="Languages" items={skillsData.languages} />
+        <SkillSection title="Frameworks & Libraries" items={skillsData.frameworks} />
+        <SkillSection title="Tools & Technologies" items={skillsData.tools} />
+      </Container>
+    </>
   );
-}
+};
+
+export default Skills;

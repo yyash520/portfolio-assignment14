@@ -1,42 +1,60 @@
-import React from "react";
+import React from 'react';
+import { Box, Typography, Container, Avatar, Paper } from '@mui/material';
+import Header from '../components/header';
 
-export default function About() {
+const About = () => {
   return (
-    <section id="about">
-      <div className="container mx-auto flex px-10 py-20 md:flex-row flex-col items-center">
-        <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-          <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-white">
-            Hi, I'm Yash.
-            <br className="hidden lg:inline-block" />
-            I’m passionate about full-stack web development.
-          </h1>
-          <p className="mb-8 leading-relaxed">
-            I’m currently studying Full Stack Web Development at RRC Polytech in Winnipeg.
-            I enjoy building useful, clean, and responsive web apps using JavaScript, React, PHP, and more.
-            From grocery calculators to dynamic JSON viewers and full Java systems, I’ve created a variety of projects
-            that show my dedication to both frontend and backend development.
-          </p>
-          <div className="flex justify-center">
-            <a
-              href="#contact"
-              className="inline-flex text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded text-lg">
-              Work With Me
-            </a>
-            <a
-              href="#projects"
-              className="ml-4 inline-flex text-gray-400 bg-gray-800 border-0 py-2 px-6 focus:outline-none hover:bg-gray-700 hover:text-white rounded text-lg">
-              See My Projects
-            </a>
-          </div>
-        </div>
-        <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-          <img
-            className="object-cover object-center rounded"
-            alt="hero"
-            src="./coding.svg"
-          />
-        </div>
-      </div>
-    </section>
+    <>
+      <Header />
+      <Container maxWidth="md" sx={{ mt: 12, mb: 4 }}>
+        <Paper elevation={3} sx={{ p: 4, borderRadius: 2 }}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mb: 4 }}>
+            <Avatar
+              alt="Profile Photo"
+              src="/cat.jpeg"
+              // Replace with your image path
+              sx={{ width: 150, height: 150, mb: 3 }}
+            />
+            <Typography variant="h3" component="h1" gutterBottom sx={{ fontWeight: 700 }}>
+              About Me
+            </Typography>
+          </Box>
+
+          <Typography variant="h5" gutterBottom sx={{ fontWeight: 600, color: 'primary.main' }}>
+            My Journey
+          </Typography>
+          <Typography paragraph sx={{ mb: 3 }}>
+            Hi, I'm Yash — a Full Stack Web Development student at RRC Polytech in Winnipeg, MB.
+            I’ve always been drawn to technology and how things work under the hood. My journey into web development started with curiosity and grew into a deep passion for coding, solving problems, and building functional web applications from scratch.
+          </Typography>
+
+          <Typography paragraph sx={{ mb: 3 }}>
+            Over the past year, I’ve gained hands-on experience in designing responsive UIs, writing clean backend logic, and managing databases. I enjoy working on both the front and back end — from creating seamless user experiences to writing secure and efficient server-side code.
+          </Typography>
+
+          <Typography variant="h5" gutterBottom sx={{ fontWeight: 600, color: 'primary.main' }}>
+            Education
+          </Typography>
+          <Typography paragraph sx={{ mb: 3 }}>
+            Diploma in Full Stack Web Development<br />
+            Red River College Polytechnic, Expected Graduation: 2025
+          </Typography>
+
+          <Typography variant="h5" gutterBottom sx={{ fontWeight: 600, color: 'primary.main' }}>
+            Skills & Expertise
+          </Typography>
+          <Typography paragraph>
+            - Frontend Development (React, JavaScript, HTML5, CSS3)<br />
+            - Backend Technologies (Node.js, Express, PHP)<br />
+            - Database Management (MySQL, MongoDB)<br />
+            - Responsive Design & UI/UX Principles<br />
+            - Git & Version Control, Docker, REST APIs<br />
+            - Agile Development Practices
+          </Typography>
+        </Paper>
+      </Container>
+    </>
   );
-}
+};
+
+export default About;
